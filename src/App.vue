@@ -1,12 +1,29 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+  <a-config-provider :locale="zhCN">
+    <div id="app">
+      <div id="nav">
+        <router-link to="/">Home</router-link> |
+        <router-link to="/about">About</router-link>
+      </div>
+      <router-view />
+      <a-button type="primary">button</a-button>
+      <a-pagination :default-current="1" :total="50" show-size-changer />
     </div>
-    <router-view />
-  </div>
+  </a-config-provider>
 </template>
+
+<script>
+import zhCN from 'ant-design-vue/lib/locale-provider/zh_CN';
+
+export default {
+  data() {
+    return {
+      locale: zhCN,
+      zhCN,
+    };
+  },
+};
+</script>
 
 <style lang="less">
 #app {
